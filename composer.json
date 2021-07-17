@@ -2,6 +2,9 @@
   "name": "toxin/analyze_access.log",
   "description": "access.log",
   "type": "project",
+  "require": {
+    "phpunit/phpunit": "9"
+  },
   "autoload": {
     "psr-4": {
       "Analyze\\": "Analyze/"
@@ -12,9 +15,6 @@
       "name": "Toxin4ick",
       "email": "toks0@mail.ru"
     }
-  ],
-  "require-dev": {
-    "phpunit/phpunit": "9"
-  }
+  ]
 
 }

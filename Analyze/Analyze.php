@@ -25,9 +25,6 @@ class Analyze
                         $countFail++;
                     }
                     $availabilitylevel = (($countLines - $countFail) / $countLines) * 100;//высчитываем уровень доступности
-                    echo $countLines . "  ";
-                    echo $countFail."  ";
-                    echo $availabilitylevel. "\n";
                     if ($availabilitylevel < $parameters["u"] and empty($timeStart)) {//Если Уровень доступности меньше заданного, тогда записываем время начала.
                         $timeStart = $matches[1];
                     }

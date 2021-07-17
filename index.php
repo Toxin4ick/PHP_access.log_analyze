@@ -1,7 +1,6 @@
 <?php
-require 'sa.php';
-use My\Analyze\Analyze;
+require_once 'vendor/autoload.php';
 $tes=getopt("u:t:");
 $pa=STDIN;
-$test=new Analyze;
+$test=new Analyze\Analyze();
 $test->accessAnalyze($tes, $pa);

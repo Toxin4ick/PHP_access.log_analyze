@@ -1,0 +1,20 @@
+{
+  "name": "toxin/analyze_access.log",
+  "description": "access.log",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Analyze\\": "Analyze/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Toxin4ick",
+      "email": "toks0@mail.ru"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "9"
+  }
+
+}

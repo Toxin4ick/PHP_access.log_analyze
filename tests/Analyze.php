@@ -1,16 +1,9 @@
 <?php 
-namespace My\Analyze;
-//считываем файл
-//задаем шаблон регулярного выражения
-//вытаскиваем данные в массив matches
-//preg_match_all($pattern,$text,$matches);
-//array_map('trim', $matches);
-//var_dump($matches);
-$oks=[];
 class Analyze
 {
-	public function accessAnalyze(array $tes,$pa){
-$text=$pa;
+	public $countInterval;
+	public function accessAnalyze(array $tes){
+$text=fopen('tests/test.log',"r");
 settype($tes["u"], 'float');
 settype($tes["t"], 'float');
 $countLines=0;
@@ -19,6 +12,7 @@ $availabilitylevel=0;
 $timeStart;
 $minAvailabilityLevel=100;
 $pattern='#.+:(\d{2}:\d{2}:\d{2}).+" ([0-9]{3}) \d (\S+)#i';
+$this->countInterval=0;
 if ($text) 
 {
     while (($buffer = fgets($text)) !== false) 
@@ -54,18 +48,19 @@ if ($text)
 					$timeStart=0;
 					$timeEnd=0;
 					$minAvailabilityLevel=$availabilitylevel;
+					$this->countInterval++;
+					//echo "\n".$this->countInterval." \n";
 				}
 			
      }
 			
-	//settype($ok[2], 'integer');
-	//var_dump($ok);
-	//var_dump($tes);
     }
 				if($availabilitylevel<$tes["u"] and !empty($timeStart))
 				{
 					$timeEnd=$ok[1];
 					echo "$timeStart  $timeEnd  ".round($availabilitylevel, 1)."\n";
+					$this->countInterval++;
+					//echo "\n".$this->countInterval." \n";
 				}
 }
 	}
